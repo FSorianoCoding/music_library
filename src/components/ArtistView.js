@@ -20,7 +20,7 @@ export function ArtistView() {
 
   return (
     <div>
-      {artistData ? artistData[0].artistName : "Loading..."}
+      {artistData.length ? artistData[0].artistName : "Loading..."}
       <NavButtons />
       {artistData.map((album) => (
         <div key={album.collectionId}>
