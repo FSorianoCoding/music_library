@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DataContext } from "../contexts/DataContext";
 
 export function GalleryItem({ track }) {
   let [isExpanded, setIsExpanded] = useState(false)
@@ -57,5 +58,3 @@ export function GalleryItem({ track }) {
     </div>
   );
 }
-
-
