@@ -1,12 +1,13 @@
 import './App.css';
 import { SearchBar } from './components/SearchBar';
 import { Gallery } from './components/Gallery';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
+import Spinner from './components/Spinner';
 
 
 function App() {
   let [query, setQuery] = useState('');
-  let [data, setData] = useState([]);
+  let [data, setData] = useState(null);
   let [message, setMesssage] = useState('Search for Music!');
 
   useEffect(() => {
@@ -40,11 +41,21 @@ function App() {
     setQuery(term);
   }
 
+  const renderGallery = () => {
+    if(data){
+      return (
+        <Suspense fallback={<Spinner />}>
+          <Gallery data={data} />
+        </Suspense>
+      )
+    }
+  }
+
   return (
     <>
       <SearchBar handleSubmit={handleSubmit}/>
       {message}
-      <Gallery data={data}/>
+      {renderGallery()}
     </>
   );
 }

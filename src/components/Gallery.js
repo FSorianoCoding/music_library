@@ -1,8 +1,8 @@
 import { GalleryItem } from "./GalleryItem"
 
-export const Gallery = ({ data }) => {
-
-  let songs = data.filter((el) => el.kind === 'song')
+export const Gallery = (props) => {
+  let myData = props.data.results.read()
+  let songs = myData.filter((el) => el.kind === 'song')
 
 
   return (
