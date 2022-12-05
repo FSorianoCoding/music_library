@@ -39,6 +39,7 @@ function App() {
   const handleSubmit = (e, term) => {
     e.preventDefault()
     setQuery(term);
+    // fetch(`localhost:3000/place/${whatever}`)    
   }
 
   return (
